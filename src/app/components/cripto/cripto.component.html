@@ -1,0 +1,84 @@
+<div class="jumbotron-fluid">
+
+    <div class="card border-success">
+        <div class="card-header">
+            <h4>GET Ciphertext and Decrypt [AES-256 CTR Mode]</h4>
+        </div>
+
+        <div class="form-group">
+            <div class="container mt-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">C </span>
+                    </div>
+                    <input disabled type="text" class="form-control" placeholder="{{this.RXciphertext}}">
+                </div>
+
+                <div class="input-group mt-1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">IV</span>
+                    </div>
+                    <input disabled type="text" class="form-control" placeholder="{{this.RXiv}}">
+                </div>
+
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">M</span>
+                    </div>
+                    <input disabled type="text" class="form-control" placeholder="{{this.decryption}}">
+                </div>
+
+                <button class="btn btn-info btn-block mt-3" (click)="getCipherText()">GET Ciphertext and Decrypt</button> 
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card border-primary mt-5">
+        <div class="card-header">
+            <h4>Encrypt Plaintext [AES-256 CTR Mode] and POST Ciphertext</h4>
+        </div>
+
+        <form [formGroup]="criptoForm" (ngSubmit)="encrypt()">
+            <div class="form-group">
+                <div class="container mt-3">
+                    <textarea class="form-control" formControlName="plaintextInput" placeholder="Enter text to Encrypt"></textarea>
+                    <button class="btn btn-warning btn-block mt-2" type="submit">ENCRYPT</button> 
+                </div>
+
+                <div class="container mt-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">IV</span>
+                        </div>
+                        <input disabled type="text" class="form-control" placeholder="{{this.TXiv}}">
+                    </div>
+                </div>
+
+                <div class="container mt-1">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">C </span>
+                        </div>
+                        <input disabled type="text" class="form-control" placeholder="{{this.TXciphertext}}">
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+        <div class="form-group mt-2">
+            <div class="container">
+                <button class="btn btn-success btn-block" (click)="getPlainText()">POST Ciphertext</button> 
+
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">M</span>
+                    </div>
+                    <input disabled type="text" class="form-control" placeholder="{{this.RXplaintext}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

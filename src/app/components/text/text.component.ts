@@ -48,9 +48,9 @@ export class TextComponent implements OnInit {
   }
 
   //COMPONENT FUNCTIONS
-  public reset(){
+  /* public reset(){
     this.text = ' ';
     this.alert = ' ';
-  }
+  } */
 
 }

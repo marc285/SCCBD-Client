@@ -8,11 +8,13 @@ import { TextComponent } from './components/text/text.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CriptoComponent } from './components/cripto/cripto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TextComponent
+    TextComponent,
+    CriptoComponent
   ],
   imports: [
     BrowserModule,

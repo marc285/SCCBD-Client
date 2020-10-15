@@ -1,14 +1,14 @@
 <div class="jumbotron">
 
     <div class="row mb-4">
-        <div class="col-4"><button class="btn btn-danger btn-block" (click)="getTest()">SERVER CONNECTION TEST</button></div>
-        <div class="col-7"><button class="btn btn-outline-dark btn-block font-italic" disabled>{{this.alert}}</button></div>
-        <div class="col-1"><button class="btn btn-dark btn-block" (click)="reset()">&#8634;</button></div>
+        <div class="col-4"><button class="btn btn-danger btn-block" (click)="getTest()">SERVER CONNECTION TEST [GET]</button></div>
+        <div class="col-8"><button class="btn btn-outline-dark btn-block font-italic" disabled>{{this.alert}}</button></div>
+        <!-- div class="col-1"><button class="btn btn-dark btn-block" (click)="reset()">&#8634;</button></div -->
     </div>
 
     <div class="card border-primary">
         <div class="card-header">
-            <h4>Text Component</h4>
+            <h4>POST Text</h4>
         </div>
 
         <form [formGroup]="textForm" (ngSubmit)="sendText()">

@@ -1,5 +1,6 @@
 # SCCBD-Client
-Client of the Cibersecurity (SCCBD) test project
+Client of the Cibersecurity (SCCBD) test project by Marc Cayuelas
+  
   
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 

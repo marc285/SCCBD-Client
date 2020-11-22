@@ -10,6 +10,8 @@ import { ClientParams } from 'src/app/ClientParams';
 })
 export class TextService {
 
+  router = `txt`;
+
   constructor(
     private http: HttpClient
   ) { }
@@ -19,13 +21,13 @@ export class TextService {
     let req = {
       "txt": text
     };
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/txt/post`;
+    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/post`;
     return this.http.post<any>(path, req);
   }
 
   getText(): Observable<any> {
     const clientParams = ClientParams.getInstance();
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/txt/get`;
+    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/get`;
     return this.http.get<any>(path);
   }
 }

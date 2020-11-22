@@ -12,6 +12,8 @@ import * as bigintConversion from 'bigint-conversion';
 })
 export class RSACriptoService {
 
+  router = `cripto/RSA`;
+
   constructor(
     private http: HttpClient
   ) { }
@@ -22,13 +24,13 @@ export class RSACriptoService {
       'e': bigintConversion.bigintToHex(clientParams.getRSAkpub().e),
       'n': bigintConversion.bigintToHex(clientParams.getRSAkpub().n)
     }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/cripto/RSAkeyExchange`;
+    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/keyExchange`;
     return this.http.post<any>(path, req);
   }
 
   getCipherText(): Observable<any> {
     const clientParams = ClientParams.getInstance();
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/cripto/RSAgetEncrypted`;
+    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getEncrypted`;
     return this.http.get<any>(path);
   }
 
@@ -37,13 +39,13 @@ export class RSACriptoService {
     let req = {
       'c': bigintConversion.bigintToHex(cipherText),
     }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/cripto/RSAdecrypt`;
+    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/decrypt`;
     return this.http.post<any>(path, req);
   }
 
   getSignature(): Observable<any> {
     const clientParams = ClientParams.getInstance();
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/cripto/RSAgetSigned`;
+    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getSigned`;
     return this.http.get<any>(path);
   }
 
@@ -52,7 +54,7 @@ export class RSACriptoService {
     let req = {
       's': bigintConversion.bigintToHex(signature)
     }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/criptoRSAverify`;
+    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/verify`;
     return this.http.post<any>(path, req);
   }
 }

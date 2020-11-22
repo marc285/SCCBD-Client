@@ -1,4 +1,4 @@
-<div class="jumbotron-fluid">
+<div class="jumbotron">
 
     <div class="card border-success">
         <div class="card-header">
@@ -21,14 +21,14 @@
                     <input disabled type="text" class="form-control" placeholder="{{this.RXiv}}">
                 </div>
 
+                <button class="btn btn-success btn-block mt-3" (click)="getCipherText()">GET Ciphertext and Decrypt</button> 
+
                 <div class="input-group mt-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">M</span>
                     </div>
                     <input disabled type="text" class="form-control" placeholder="{{this.decryption}}">
                 </div>
-
-                <button class="btn btn-info btn-block mt-3" (click)="getCipherText()">GET Ciphertext and Decrypt</button> 
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
         <form [formGroup]="criptoForm" (ngSubmit)="encrypt()">
             <div class="form-group">
                 <div class="container mt-3">
-                    <textarea class="form-control" formControlName="plaintextInput" placeholder="Enter text to Encrypt"></textarea>
+                    <textarea class="form-control" formControlName="plainTextInput" placeholder="Enter text to Encrypt"></textarea>
                     <button class="btn btn-warning btn-block mt-2" type="submit">ENCRYPT</button> 
                 </div>
 
@@ -67,9 +67,9 @@
             </div>
         </form>
 
-        <div class="form-group mt-2">
+        <div class="form-group mt-1">
             <div class="container">
-                <button class="btn btn-success btn-block" (click)="getPlainText()">POST Ciphertext</button> 
+                <button class="btn btn-info btn-block" (click)="getPlainText()">POST Ciphertext</button> 
 
                 <div class="input-group mt-3">
                     <div class="input-group-prepend">

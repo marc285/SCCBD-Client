@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CriptoComponent } from './cripto.component';
+import { RsaCriptoComponent } from './rsa-cripto.component';
 
-describe('CriptoComponent', () => {
-  let component: CriptoComponent;
-  let fixture: ComponentFixture<CriptoComponent>;
+describe('RsaCriptoComponent', () => {
+  let component: RsaCriptoComponent;
+  let fixture: ComponentFixture<RsaCriptoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CriptoComponent ]
+      declarations: [ RsaCriptoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CriptoComponent);
+    fixture = TestBed.createComponent(RsaCriptoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

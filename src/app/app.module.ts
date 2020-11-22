@@ -8,13 +8,15 @@ import { TextComponent } from './components/text/text.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import { CriptoComponent } from './components/cripto/cripto.component';
+import { AESCriptoComponent } from './components/aes-cripto/aes-cripto.component';
+import { RSACriptoComponent } from './components/rsa-cripto/rsa-cripto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextComponent,
-    CriptoComponent
+    AESCriptoComponent,
+    RSACriptoComponent
   ],
   imports: [
     BrowserModule,

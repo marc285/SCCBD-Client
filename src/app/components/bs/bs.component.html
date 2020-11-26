@@ -1,0 +1,115 @@
+<div class="jumbotron">
+
+    <div class="card border-primary">
+        <div class="card-header">
+            <h4>Blind Signature [with RSA-2048]</h4>
+        </div>
+
+        <form [formGroup]="bsForm" (ngSubmit)="blindMessage()">
+            <div class="form-group">
+                <div class="container mt-3">
+                    <textarea class="form-control" formControlName="plainTextInput" placeholder="Enter Message"></textarea>
+                    <button class="btn btn-warning btn-block mt-2" type="submit">Blind Message</button> 
+                </div>
+
+                <div class="container mt-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">  r  </span>
+                        </div>
+                        <input disabled type="text" class="form-control" placeholder="{{this.r}}">
+                    </div>
+                </div>
+
+                <div class="container mt-1">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">bm</span>
+                        </div>
+                        <input disabled type="text" class="form-control" placeholder="{{this.bm}}">
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+        <div class="form-group mt-1">
+            <div class="container">
+                <button class="btn btn-info btn-block" (click)="getSigned()">POST Blind Message and get Blind Signature</button> 
+
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">bs</span>
+                    </div>
+                    <input disabled type="text" class="form-control" placeholder="{{this.bs}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="container">
+                <button class="btn btn-success btn-block" (click)="unblindAndVerify()">Unblind and Verify Signature</button> 
+
+                <div class="input-group mt-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">  s </span>
+                    </div>
+                    <input disabled type="text" class="form-control" placeholder="{{this.s}}">
+                </div>
+
+                <div class="card bg-success mt-2" *ngIf="this.verified === 't'">
+                    <div class="card-header">
+                        <h4>Correct Signature Verification</h4>
+                    </div>
+
+                    <div class="container mt-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  v  </span>
+                            </div>
+                            <input disabled type="text" class="form-control" placeholder="{{this.v}}">
+                        </div>
+                    </div>
+    
+                    <div class="container mt-1 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  m </span>
+                            </div>
+                            <input disabled type="text" class="form-control" placeholder="{{this.m}}">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card bg-danger mt-2" *ngIf="this.verified === 'f'">
+                    <div class="card-header">
+                        <h4>Incorrect Signature Verification</h4>
+                    </div>
+
+                    <div class="container mt-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  v  </span>
+                            </div>
+                            <input disabled type="text" class="form-control" placeholder="{{this.v}}">
+                        </div>
+                    </div>
+    
+                    <div class="container mt-1 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">  m </span>
+                            </div>
+                            <input disabled type="text" class="form-control" placeholder="{{this.m}}">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -10,13 +10,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AESCriptoComponent } from './components/aes-cripto/aes-cripto.component';
 import { RSACriptoComponent } from './components/rsa-cripto/rsa-cripto.component';
+import { BsComponent } from './components/bs/bs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextComponent,
     AESCriptoComponent,
-    RSACriptoComponent
+    RSACriptoComponent,
+    BsComponent
   ],
   imports: [
     BrowserModule,

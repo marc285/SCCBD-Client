@@ -37,7 +37,7 @@ export class RSACriptoService {
   getPlainText(cipherText: bigint): Observable<any> {
     const clientParams = ClientParams.getInstance();
     let req = {
-      'c': bigintConversion.bigintToHex(cipherText),
+      'c': bigintConversion.bigintToHex(cipherText)
     }
     const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/decrypt`;
     return this.http.post<any>(path, req);

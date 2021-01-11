@@ -18,7 +18,7 @@ export class AESCriptoService {
 
   getCipherText(): Observable<any> {
     const clientParams = ClientParams.getInstance();
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getEncrypted`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getEncrypted`;
     return this.http.get<any>(path);
   }
 
@@ -28,7 +28,7 @@ export class AESCriptoService {
       'c': cipherText,
       'iv': IV
     }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/decrypt`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/decrypt`;
     return this.http.post<any>(path, req);
   }
 }

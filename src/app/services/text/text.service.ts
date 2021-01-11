@@ -21,13 +21,13 @@ export class TextService {
     let req = {
       "txt": text
     };
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/post`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/post`;
     return this.http.post<any>(path, req);
   }
 
   getText(): Observable<any> {
     const clientParams = ClientParams.getInstance();
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/get`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/get`;
     return this.http.get<any>(path);
   }
 }

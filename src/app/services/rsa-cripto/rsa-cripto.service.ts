@@ -18,19 +18,9 @@ export class RSACriptoService {
     private http: HttpClient
   ) { }
 
-  keyExchange(): Observable<any> {
-    const clientParams = ClientParams.getInstance();
-    let req = {
-      'e': bigintConversion.bigintToHex(clientParams.getRSAkpub().e),
-      'n': bigintConversion.bigintToHex(clientParams.getRSAkpub().n)
-    }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/keyExchange`;
-    return this.http.post<any>(path, req);
-  }
-
   getCipherText(): Observable<any> {
     const clientParams = ClientParams.getInstance();
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getEncrypted`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getEncrypted`;
     return this.http.get<any>(path);
   }
 
@@ -39,13 +29,13 @@ export class RSACriptoService {
     let req = {
       'c': bigintConversion.bigintToHex(cipherText)
     }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/decrypt`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/decrypt`;
     return this.http.post<any>(path, req);
   }
 
   getSignature(): Observable<any> {
     const clientParams = ClientParams.getInstance();
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getSigned`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getSigned`;
     return this.http.get<any>(path);
   }
 
@@ -54,7 +44,7 @@ export class RSACriptoService {
     let req = {
       's': bigintConversion.bigintToHex(signature)
     }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/verify`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/verify`;
     return this.http.post<any>(path, req);
   }
 }

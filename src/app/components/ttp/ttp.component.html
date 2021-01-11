@@ -1,0 +1,98 @@
+<div class="container-fluid mt-5">
+    <div class="jumbotron">
+
+        <div class="row mb-4">
+            <div class="col-2">
+                <div class="card border-dark">
+                    <div class="card-header">
+                        <h5>Server</h5>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="container mt-3">
+                            <div class="col"><button class="btn btn-outline-dark btn-block" disabled>PR  <img *ngIf="this.PrVerification == true && this.PrVerification != null" src="/assets/verified.png" class="img-fluid" alt="Responsive image"><img *ngIf="!this.PrVerification && this.PrVerification != null" src="/assets/notverified.png" class="img-fluid" alt="Responsive image"></button></div>
+                            <div class="col mt-1"><button class="btn btn-outline-dark btn-block" disabled>PKP <img *ngIf="this.PkpSVerification == true && this.PkpSVerification != null" src="/assets/verified.png" class="img-fluid" alt="Responsive image"><img *ngIf="!this.PkpSVerification && this.PkpSVerification != null" src="/assets/notverified.png" class="img-fluid" alt="Responsive image"></button></div>
+
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">C</span>
+                                </div>
+                                <textarea readonly rows="2" class="form-control" placeholder="{{this.cipherContent}}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2"><img *ngIf="this.visibleArrow34" src="/assets/type34.png" class="img-fluid" alt="Responsive image"></div>
+
+            <div class="col-2">
+                <div class="col"><img *ngIf="this.visibleArrow1" src="/assets/type1.png" class="img-fluid" alt="Responsive image"></div>
+                <div class="col mt-3"><img *ngIf="this.visibleArrow2" src="/assets/type2.png" class="img-fluid" alt="Responsive image"></div>
+                <div class="col mt-4">
+                    <div class="card border-dark">
+                        <div class="card-header">
+                            <h5>TTP</h5>
+                        </div>
+                
+                        <div class="form-group">
+                            <div class="container mt-3">
+                                <div class="col mt-1"><button class="btn btn-outline-dark btn-block" disabled>PKO <img *ngIf="this.PkoVerification == true && this.PkoVerification != null" src="/assets/verified.png" class="img-fluid" alt="Responsive image"><img *ngIf="!this.PkoVerification && this.PkoVerification != null" src="/assets/notverified.png" class="img-fluid" alt="Responsive image"></button></div>
+    
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">K</span>
+                                    </div>
+                                    <textarea readonly rows="2" class="form-control" placeholder="{{this.sharedKey}}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2"><img *ngIf="this.visibleArrow4" src="/assets/type4.png" class="img-fluid" alt="Responsive image"></div>
+
+            <div class="col-4">
+                <div class="card border-dark">
+                    <div class="card-header">
+                        <h5>Client</h5> 
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="container mt-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">C</span>
+                                </div>
+                                <textarea readonly rows="2" class="form-control" placeholder="{{this.cipherContent}}"></textarea>
+                            </div>
+
+    
+                            <button class="btn btn-info btn-block mt-1" (click)="getContent()">Get Server Content (C)</button> 
+                            <button [disabled]="!this.PoVerification" class="btn btn-warning btn-block mt-2" (click)="sendInterest()">Send Interest</button>
+                            <button [disabled]="!this.PrVerification" class="btn btn-success btn-block mt-2" (click)="getKey()">Get Published Key (K)</button>  
+            
+                            <div class="input-group mt-1">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">K</span>
+                                </div>
+                                <textarea readonly rows="2" class="form-control" placeholder="{{this.sharedKey}}"></textarea>
+                            </div>
+
+                            <button [disabled]="!this.PkpCVerification" class="btn btn-danger btn-block mt-2" (click)="decryptContent()">Decrypt Content with K</button>
+    
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">M</span>
+                                </div>
+                                <textarea readonly rows="2" class="form-control" placeholder="{{this.plainContent}}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>

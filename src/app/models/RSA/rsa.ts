@@ -5,14 +5,6 @@ import { RSAPrivateKey } from 'src/app/models/RSAPrivateKey/rsaprivate-key';
 
 export class RSA {
 
-    /* kpub: RSAPublicKey;
-    kpriv: RSAPrivateKey;
-
-    constructor(kpub: RSAPublicKey, kpriv: RSAPrivateKey){
-        this.kpub = kpub;
-        this.kpriv = kpriv;
-    } */
-
     public static async generateKeys(bitLength: number) {
         const e: bigint = BigInt(65537);  //Default value for public exponent
 
@@ -35,7 +27,6 @@ export class RSA {
         let kpub: RSAPublicKey = new RSAPublicKey(e, n);
         let kpriv: RSAPrivateKey = new RSAPrivateKey(d, n);
 
-        //return new RSAKeyPair(kpub, kpriv);
         return {
             'kpub': kpub,
             'kpriv': kpriv

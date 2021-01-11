@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AESCriptoComponent } from './components/aes-cripto/aes-cripto.component';
 import { RSACriptoComponent } from './components/rsa-cripto/rsa-cripto.component';
 import { BsComponent } from './components/bs/bs.component';
+import { TtpComponent } from './components/ttp/ttp.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BsComponent } from './components/bs/bs.component';
     TextComponent,
     AESCriptoComponent,
     RSACriptoComponent,
-    BsComponent
+    BsComponent,
+    TtpComponent
   ],
   imports: [
     BrowserModule,

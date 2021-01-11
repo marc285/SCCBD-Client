@@ -12,6 +12,11 @@ export class ClientParams {  //Singleton Pattern
     private RSAkpriv: RSAPrivateKey; //d,n Bigint
     private generatedKeyPair: boolean; //To avoid generating more than one RSA KeyPair
     private serverRSAkpub: RSAPublicKey; //Public key of the Server
+    private ttpIP: string; //IP address of the TTP to connect with
+    private ttpPort: number; //Port of the TTP to connect with
+    private ttpRSAkpub: RSAPublicKey; //Public key of the TTP
+    private ttpSharedKey: any; //(K of the TTP schema)
+    private ttpContent: any; //Cotnent received from the Server
 
     private constructor() { //Empty initialization 
         this.ip = '';
@@ -21,6 +26,11 @@ export class ClientParams {  //Singleton Pattern
         this.RSAkpriv = new RSAPrivateKey(BigInt(0), BigInt(0));
         this.generatedKeyPair = false;
         this.serverRSAkpub = new RSAPublicKey(BigInt(0), BigInt(0));
+        this.ttpIP = '';
+        this.ttpPort = 0;
+        this.ttpRSAkpub = new RSAPublicKey(BigInt(0), BigInt(0));
+        this.ttpSharedKey = {};
+        this.ttpContent = '';
     };
 
     public static getInstance(): ClientParams {
@@ -85,6 +95,46 @@ export class ClientParams {  //Singleton Pattern
 
     public setServerRSAkpub(RSAkpub: RSAPublicKey) {
         this.serverRSAkpub = RSAkpub;
+    }
+
+    public getTTPip(): string {
+        return this.ttpIP;
+    }
+
+    public setTTPip(ttpIP: string){
+        this.ttpIP = ttpIP;
+    }
+
+    public getTTPport(): number {
+        return this.ttpPort;
+    }
+
+    public setTTPport(ttpPort: number){
+        this.ttpPort = ttpPort;
+    }
+
+    public getTTPRSAkpub(): RSAPublicKey {
+        return this.ttpRSAkpub;
+    }
+
+    public setTTPRSAkpub(RSAkpub: RSAPublicKey) {
+        this.ttpRSAkpub = RSAkpub;
+    }
+
+    public getTTPSharedKey(): any {
+        return this.ttpSharedKey;
+    }
+
+    public setTTPSharedKey(ttpSharedKey: any) {
+        this.ttpSharedKey = ttpSharedKey;
+    }
+
+    public getTTPcontent(): any {
+        return this.ttpContent;
+    }
+
+    public setTTPcontent(ttpContent: any) {
+        this.ttpContent = ttpContent;
     }
 
 }

@@ -23,7 +23,7 @@ export class BsService {
     let req = {
       'bm': bigintConversion.bigintToHex(blindedMessage)
     }
-    const path: string = `http://${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getSigned`;
+    const path: string = `${clientParams.getIP()}:${clientParams.getPort()}/${this.router}/getSigned`;
     return this.http.post<any>(path, req);
   }
 }

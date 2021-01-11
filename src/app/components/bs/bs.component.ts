@@ -8,8 +8,8 @@ import { ClientParams } from 'src/app/ClientParams';
 import { RSA } from 'src/app/models/RSA/rsa';
 import { RSAPublicKey } from 'src/app/models/RSAPublicKey/rsapublic-key';
 import { RSAPrivateKey } from 'src/app/models/RSAPrivateKey/rsaprivate-key';
-import { RSACriptoService } from 'src/app/services/rsa-cripto/rsa-cripto.service';
 
+import { KeyExchangeService } from 'src/app/services/key-exchange/key-exchange.service';
 import { BsService } from 'src/app/services/bs/bs.service';
 
 @Component({
@@ -31,7 +31,7 @@ export class BsComponent implements OnInit {
   verified: string;
 
   constructor(
-    private rsaCriptoService: RSACriptoService,
+    private keyExchangeService: KeyExchangeService,
     private bsService: BsService
   ) { 
     this.m = 'Message in BigInt format';
@@ -53,7 +53,8 @@ export class BsComponent implements OnInit {
       clientParams.setRSAkpub(kp.kpub as RSAPublicKey);
       clientParams.setRSAkpriv(kp.kpriv as RSAPrivateKey);
 
-      this.rsaCriptoService.keyExchange()
+      let ttpFlag = false;
+      this.keyExchangeService.serverKeyExchange(ttpFlag)
         .subscribe(res => {
           clientParams.setServerRSAkpub(new RSAPublicKey(bigintConversion.hexToBigint(res.e as string), bigintConversion.hexToBigint(res.n as string)));
 
